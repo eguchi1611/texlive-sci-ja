@@ -1,4 +1,4 @@
-# texlive.profile written on Fri Jan 12 16:02:47 2024 UTC
+# texlive.profile written on Fri Jan 12 17:33:46 2024 UTC
 # It will NOT be updated and reflects only the
 # installation profile at installation time.
 selected_scheme scheme-custom
@@ -9,6 +9,7 @@ TEXMFLOCAL /usr/local/texlive/texmf-local
 TEXMFSYSCONFIG /usr/local/texlive/2023/texmf-config
 TEXMFSYSVAR /usr/local/texlive/2023/texmf-var
 TEXMFVAR ~/.texlive2023/texmf-var
+binary_aarch64-linux 1
 binary_x86_64-linux 1
 collection-basic 1
 collection-langjapanese 1
