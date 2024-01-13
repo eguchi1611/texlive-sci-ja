@@ -7,7 +7,7 @@ COPY texlive.profile /tmp/texlive-install/
 RUN cd /tmp/texlive-install && \
   wget https://ftp.yz.yamagata-u.ac.jp/pub/CTAN/systems/texlive/tlnet/install-tl-unx.tar.gz && \
   tar -xvf install-tl-unx.tar.gz && \
-  perl ./install-tl-2*/install-tl --no-interaction --location https://ftp.yz.yamagata-u.ac.jp/pub/CTAN/systems/texlive/tlnet -profile texlive.profile && \
+  perl ./install-tl-2*/install-tl --no-interaction -profile texlive.profile && \
   ln -sf /usr/local/texlive/2023/bin/$(uname -m)-linux /usr/local/texlive/bin && \
   rm -rf /tmp/texlive-install/
 
