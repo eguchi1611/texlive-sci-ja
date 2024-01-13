@@ -14,6 +14,6 @@ RUN cd /tmp/texlive-install && \
 # texliveにパスを通す
 ENV PATH="/usr/local/texlive/bin:$PATH"
 
-# latexmkのインストール
+# 追加パッケージをインストール
 RUN tlmgr update --self --all && \
-  tlmgr install latexmk collection-mathscience collection-⁠latexextra
+  tlmgr install latexmk collection-mathscience collection-latexextra
