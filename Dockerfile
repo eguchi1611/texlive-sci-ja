@@ -16,4 +16,4 @@ ENV PATH="/usr/local/texlive/bin:$PATH"
 
 # latexmkのインストール
 RUN tlmgr update --self --all && \
-  tlmgr install latexmk
+  tlmgr install latexmk collection-mathscience
