@@ -1,4 +1,4 @@
-# texlive.profile written on Fri Jan 12 17:33:46 2024 UTC
+# texlive.profile written on Sat Jan 13 13:16:57 2024 UTC
 # It will NOT be updated and reflects only the
 # installation profile at installation time.
 selected_scheme scheme-custom
@@ -14,6 +14,9 @@ binary_x86_64-linux 1
 collection-basic 1
 collection-langjapanese 1
 collection-latex 1
+collection-latexrecommended 1
+collection-metapost 1
+collection-xetex 1
 instopt_adjustpath 0
 instopt_adjustrepo 1
 instopt_letter 0
