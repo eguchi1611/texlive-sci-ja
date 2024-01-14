@@ -13,6 +13,3 @@ RUN cd /tmp/texlive-install && \
 
 # texliveにパスを通す
 ENV PATH="/usr/local/texlive/bin:$PATH"
-
-# 追加パッケージをインストール
-RUN tlmgr install latexmk
