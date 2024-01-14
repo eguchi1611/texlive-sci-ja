@@ -1,1 +1,1 @@
-# texlive-dev-ja
+# texlive-ja
