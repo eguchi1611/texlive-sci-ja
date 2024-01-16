@@ -5,7 +5,7 @@ ENV PATH="/usr/local/texlive/bin:$PATH"
 
 # Ghostscriptをインストール
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-  && apt-get -y install --no-install-recommends ghostscript
+  && apt-get -y install --no-install-recommends ghostscript gnuplot
 
 # インストール構成をコピー
 COPY texlive.profile /tmp/texlive-install/
@@ -17,3 +17,6 @@ RUN cd /tmp/texlive-install && \
   perl ./install-tl-2*/install-tl --no-interaction -profile texlive.profile && \
   ln -sf /usr/local/texlive/2023/bin/$(uname -m)-linux /usr/local/texlive/bin && \
   rm -rf /tmp/texlive-install/
+
+RUN tlmgr update --self --all && \
+  tlmgr install latexmk
