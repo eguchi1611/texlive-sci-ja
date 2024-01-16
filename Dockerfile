@@ -18,5 +18,12 @@ RUN cd /tmp/texlive-install && \
   ln -sf /usr/local/texlive/2023/bin/$(uname -m)-linux /usr/local/texlive/bin && \
   rm -rf /tmp/texlive-install/
 
+# latexmkをインストール
 RUN tlmgr update --self --all && \
   tlmgr install latexmk
+
+# gnuplot-lua-tikzをインストール
+RUN mkdir /usr/local/texlive/texmf-local/tex/latex/gnuplot && \
+  cd $_ && \
+  gnuplot -e 'set term tikz createstyle' && \
+  mktexlsr
