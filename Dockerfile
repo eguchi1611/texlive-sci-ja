@@ -3,10 +3,6 @@ FROM buildpack-deps:bookworm-scm
 # texliveにパスを通す
 ENV PATH="/usr/local/texlive/bin:$PATH"
 
-# Ghostscriptをインストール
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-  && apt-get -y install --no-install-recommends ghostscript gnuplot
-
 # インストール構成をコピー
 COPY texlive.profile /tmp/texlive-install/
 
@@ -22,8 +18,6 @@ RUN cd /tmp/texlive-install && \
 RUN tlmgr update --self --all && \
   tlmgr install latexmk
 
-# gnuplot-lua-tikzをインストール
-RUN mkdir /usr/local/texlive/texmf-local/tex/latex/gnuplot && \
-  cd /usr/local/texlive/texmf-local/tex/latex/gnuplot && \
-  gnuplot -e 'set term tikz createstyle' && \
-  mktexlsr
+# Ghostscriptをインストール
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+  && apt-get -y install --no-install-recommends ghostscript
