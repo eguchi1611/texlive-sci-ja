@@ -24,6 +24,6 @@ RUN tlmgr update --self --all && \
 
 # gnuplot-lua-tikzをインストール
 RUN mkdir /usr/local/texlive/texmf-local/tex/latex/gnuplot && \
-  cd $_ && \
+  cd /usr/local/texlive/texmf-local/tex/latex/gnuplot && \
   gnuplot -e 'set term tikz createstyle' && \
   mktexlsr
