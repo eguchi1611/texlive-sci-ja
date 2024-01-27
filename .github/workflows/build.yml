@@ -9,6 +9,8 @@ on:
   pull_request:
     branches:
       - "main"
+  schedule:
+    - cron: "0 0 * * *"
 
 jobs:
   docker:
@@ -28,6 +30,7 @@ jobs:
             type=ref,event=pr
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
+            type=schedule
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
