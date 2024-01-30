@@ -12,7 +12,7 @@ RUN wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz \
   && ./install-tl -profile texlive.profile \
   && ln -sf /usr/local/texlive/*/bin/* /usr/local/texlive/bin
 
-# コレクション類のインストール
+# latexmkのインストール
 RUN tlmgr install latexmk
 
 # Ghostscriptをインストール
