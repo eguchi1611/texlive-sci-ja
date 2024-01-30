@@ -1,0 +1,23 @@
+{
+  "name": "TeX Live",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "username": "vscode"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["James-Yu.latex-workshop"],
+      "settings": {
+        "latex-workshop.latex.recipe.default": "latexmk (latexmkrc)"
+      }
+    }
+  },
+  "remoteUser": "vscode",
+  "mounts": [
+    "source=${localWorkspaceFolder}/.latexmkrc,target=/home/vscode/.latexmkrc,type=bind,consistency=cached"
+  ]
+}
