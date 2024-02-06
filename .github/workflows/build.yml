@@ -30,8 +30,7 @@ jobs:
             type=ref,event=pr
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
-            type=schedule
-            type=schedule,pattern={{date 'YYYYMMDD'}}
+            type=schedule,pattern=weekly
             type=raw,value=latest,enable={{is_default_branch}}
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
