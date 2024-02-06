@@ -1,6 +1,6 @@
 {
   "name": "TeX Live",
-  "image": "eguchi1611/texlive-ja:1.3.3",
+  "image": "eguchi1611/texlive-ja:weekly",
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
       "username": "vscode"
