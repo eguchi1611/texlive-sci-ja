@@ -15,6 +15,9 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        gnuplot: [false, true]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,6 +35,8 @@ jobs:
             type=semver,pattern={{major}}.{{minor}}
             type=schedule,pattern=weekly
             type=raw,value=latest,enable={{is_default_branch}}
+          flavor: |
+            suffix=${{ matrix.gnuplot && '-gnuplot' || '' }},onlatest=true
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
@@ -57,3 +62,4 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          file: ${{ matrix.gnuplot && 'Dockerfile.gnuplot' || 'Dockerfile' }}
