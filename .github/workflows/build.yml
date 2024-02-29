@@ -30,5 +30,4 @@ jobs:
         with:
           imageName: ghcr.io/eguchi1611/texlive-ja
           push: always
-          subFolder: src
           platform: linux/amd64,linux/arm64
