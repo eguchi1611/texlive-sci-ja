@@ -24,3 +24,4 @@ jobs:
         with:
           imageName: ghcr.io/eguchi1611/texlive-ja-dev
           push: always
+          subFolder: src
