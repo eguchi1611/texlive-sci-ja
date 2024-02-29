@@ -1,4 +1,4 @@
-FROM eguchi1611/texlive-ja:weekly
+FROM ghcr.io/eguchi1611/texlive-ja
 
 # Gnuplotをインストール
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \

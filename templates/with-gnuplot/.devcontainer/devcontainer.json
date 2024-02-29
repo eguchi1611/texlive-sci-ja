@@ -1,6 +1,8 @@
 {
   "name": "TeX Live",
-  "image": "ghcr.io/eguchi1611/texlive-ja",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "mounts": [
     "source=${localWorkspaceFolder}/.devcontainer/.latexmkrc,target=/home/vscode/.latexmkrc,type=bind,consistency=cached"
   ]
