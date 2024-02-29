@@ -1,7 +1,21 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bullseye",
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  "name": "TeX Live",
+  "build": {
+    "dockerfile": "Dockerfile"
   },
-  "postCreateCommand": "npm install -g @devcontainers/cli"
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "username": "vscode"
+    },
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["James-Yu.latex-workshop"],
+      "settings": {
+        "latex-workshop.latex.recipe.default": "latexmk (latexmkrc)"
+      }
+    }
+  },
+  "remoteUser": "vscode"
 }
