@@ -46,6 +46,6 @@ jobs:
         run: |
           set -e
           npm install -g @devcontainers/cli
-          devcontainer build --image-name dev_image_name --platform "linux/arm64 linux/amd64" --workspace-folder ./src
+          devcontainer build --image-name dev_image_name --platform "linux/arm64,linux/amd64" --workspace-folder ./src
           IMAGE_ID=`docker images --format="{{.Repository}} {{.ID}}" | grep -m1 "texlive-devcontainer" | cut -d' ' -f2`
           echo $IMAGE_ID
