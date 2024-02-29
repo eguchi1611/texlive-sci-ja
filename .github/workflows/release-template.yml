@@ -1,0 +1,18 @@
+name: "Release Dev Container Templates & Generate Documentation"
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  deploy:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Publish Templates"
+        uses: devcontainers/action@v1
+        with:
+          publish-templates: "true"
+          base-path-to-templates: "./templates"

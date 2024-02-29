@@ -1,4 +1,4 @@
-name: ci
+name: "Pre-build TeX Live Dev Container Image"
 
 on:
   push:
