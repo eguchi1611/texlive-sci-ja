@@ -27,8 +27,10 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Pre-build dev container image
         uses: devcontainers/ci@v0.3
+        env:
+          BUILDX_NO_DEFAULT_ATTESTATIONS: true
         with:
           imageName: ghcr.io/eguchi1611/texlive-ja-dev
           push: always
           subFolder: src
-          platform: linux/arm64,linux/amd64
+          platform: linux/amd64,linux/arm64
