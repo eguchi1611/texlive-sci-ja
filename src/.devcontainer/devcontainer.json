@@ -1,13 +1,11 @@
 {
   "name": "TeX Live",
-  "build": {
-    "dockerfile": "test.Dockerfile"
-  },
+  "image": "ghcr.io/eguchi1611/texlive-ja",
   "features": {
-    // "ghcr.io/devcontainers/features/common-utils:2": {
-    //   "username": "vscode"
-    // },
-    // "ghcr.io/devcontainers/features/git:1": {}
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "username": "vscode"
+    },
+    "ghcr.io/devcontainers/features/git:1": {}
   },
   "customizations": {
     "vscode": {
