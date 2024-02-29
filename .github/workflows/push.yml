@@ -46,4 +46,4 @@ jobs:
         run: |
           set -e
           npm install -g @devcontainers/cli
-          devcontainer build --push --image-name ghcr.io/eguchi1611/texlive-dev:vtest3 --workspace-folder ./src --platform linux/arm64 linux/amd64
+          devcontainer build --push --image-name ghcr.io/eguchi1611/texlive-dev:vtest3 --workspace-folder ./src --platform linux/arm64,linux/amd64
