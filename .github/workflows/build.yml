@@ -4,62 +4,23 @@ on:
   push:
     branches:
       - "main"
-    tags:
-      - "v*"
-  pull_request:
-    branches:
-      - "main"
   schedule:
     - cron: "0 0 * * 0"
 
 jobs:
   docker:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        gnuplot: [false, true]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: |
-            eguchi1611/texlive-ja
-            ghcr.io/eguchi1611/texlive-ja
-          tags: |
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=schedule,pattern=weekly
-            type=raw,value=latest,enable={{is_default_branch}}
-          flavor: |
-            suffix=${{ matrix.gnuplot && '-gnuplot' || '' }},onlatest=true
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-      - name: Login to Docker Hub
-        if: github.event_name != 'pull_request'
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Login to GitHub Container Registry
-        if: github.event_name != 'pull_request'
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}
+          username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build and push
-        uses: docker/build-push-action@v5
+      - name: Pre-build dev container image
+        uses: devcontainers/ci@v0.3
         with:
-          platforms: linux/amd64,linux/arm64
-          provenance: false
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          file: ${{ matrix.gnuplot && 'Dockerfile.gnuplot' || 'Dockerfile' }}
+          imageName: ghcr.io/eguchi1611/texlive-ja-dev
+          push: always
