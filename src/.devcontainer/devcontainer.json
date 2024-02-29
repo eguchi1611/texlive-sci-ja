@@ -1,0 +1,19 @@
+{
+  "name": "TeX Live",
+  "image": "eguchi1611/texlive-ja",
+  "features": {
+    // "ghcr.io/devcontainers/features/common-utils:2": {
+    //   "username": "vscode"
+    // },
+    // "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["James-Yu.latex-workshop"],
+      "settings": {
+        "latex-workshop.latex.recipe.default": "latexmk (latexmkrc)"
+      }
+    }
+  },
+  "remoteUser": "vscode"
+}
