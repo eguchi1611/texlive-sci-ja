@@ -1,1 +1,1 @@
-FROM buildpack-deps:bookworm-scm
+FROM ghcr.io/eguchi1611/texlive-ja
