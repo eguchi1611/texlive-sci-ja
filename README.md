@@ -1,4 +1,4 @@
-# texlive-ja
+# texlive-sci-ja
 
 TeX Live のイメージです．日本語と理数系のパッケージが導入されています．VSCode の開発コンテナで使用する目的で作成しています．
 
@@ -18,25 +18,21 @@ collection-pictures
 
 ## 開発コンテナのセットアップ
 
+VSCode の開発コンテナの構成ファイルの追加画面で，次のいずれかのカスタムテンプレート ID を入力してください．
+
 Basic
 
-```shell
-/bin/bash -c "curl -sL https://github.com/eguchi1611/texlive-ja/archive/HEAD.tar.gz | tar -x --strip=3 */examples/devcontainer-basic"
+```
+ghcr.io/eguchi1611/texlive-ja/basic
 ```
 
-with Gnuplot
+with-gnuplot
 
-```shell
-/bin/bash -c "curl -sL https://github.com/eguchi1611/texlive-ja/archive/HEAD.tar.gz | tar -x --strip=3 */examples/devcontainer-with-gnuplot"
+```
+ghcr.io/eguchi1611/texlive-ja/with-gnuplot
 ```
 
 ## Docker Image
-
-Docker Hub
-
-```
-docker pull eguchi1611/texlive-ja:latest
-```
 
 GitHub Container Registry
 
@@ -44,8 +40,6 @@ GitHub Container Registry
 docker pull ghcr.io/eguchi1611/texlive-ja:latest
 ```
 
-| Tag        |                      |
-| ---------- | -------------------- |
-| latest     | Latest Build         |
-| weekly     | Weekly Build         |
-| x.x.x, x.x | Git Tag (Deprecated) |
+| TAG    |              |
+| ------ | ------------ |
+| latest | Latest Build |
