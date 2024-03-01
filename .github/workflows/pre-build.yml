@@ -9,6 +9,9 @@ on:
   schedule:
     - cron: "0 0 * * 0" # 毎週日曜 (UTC)
 
+env:
+  REGISTRY_IMAGE: ghcr.io/eguchi1611/texlive-ja
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -30,7 +33,7 @@ jobs:
         env:
           BUILDX_NO_DEFAULT_ATTESTATIONS: true
         with:
-          imageName: ghcr.io/eguchi1611/texlive-ja
+          imageName: ${{ env.REGISTRY_IMAGE }}
           push: always
           platform: linux/amd64,linux/arm64
           subFolder: ./src
