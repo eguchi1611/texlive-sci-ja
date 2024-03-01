@@ -4,13 +4,9 @@ on:
   push:
     branches:
       - "main"
-    paths:
-      - "src/**"
   pull_request:
     branches:
       - "main"
-    paths:
-      - "src/**"
   schedule:
     - cron: "0 0 * * 0" # 毎週日曜 (UTC)
 
@@ -20,6 +16,9 @@ env:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        scheme: [basic, with-gnuplot]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -42,4 +41,5 @@ jobs:
           imageName: ${{ env.REGISTRY_IMAGE }}
           push: ${{ github.event_name != 'pull_request' && 'always' || 'never' }}
           platform: linux/amd64,linux/arm64
-          subFolder: ./src
+          subFolder: ./src/${{ matrix.scheme }}
+          imageTag: ${{ matrix.scheme }}${{ matrix.scheme == 'basic' && ',latest' }}
