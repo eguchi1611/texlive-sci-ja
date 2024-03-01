@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - "main"
-
+    paths:
+      - "templates/**"
 jobs:
   deploy:
     if: ${{ github.ref == 'refs/heads/main' }}
