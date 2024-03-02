@@ -1,0 +1,14 @@
+{
+  "id": "basic",
+  "version": "1.0.0",
+  "name": "TeX Live",
+  "description": "TeX Live for Japanese and Science",
+  "options": {
+    "scheme": {
+      "type": "string",
+      "description": "Select TeX Live scheme",
+      "proposals": ["basic", "full"],
+      "default": "basic"
+    }
+  }
+}

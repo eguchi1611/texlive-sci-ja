@@ -1,9 +1,0 @@
-{
-  "name": "TeX Live",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
-  "mounts": [
-    "source=${localWorkspaceFolder}/.devcontainer/.latexmkrc,target=/home/vscode/.latexmkrc,type=bind,consistency=cached"
-  ]
-}

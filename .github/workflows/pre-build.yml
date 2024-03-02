@@ -4,9 +4,13 @@ on:
   push:
     branches:
       - "main"
+    paths:
+      - "templates/**"
   pull_request:
     branches:
       - "main"
+    paths:
+      - "templates/**"
   schedule:
     - cron: "0 0 * * 0" # 毎週日曜 (UTC)
   workflow_dispatch:
@@ -19,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        scheme: [basic, with-gnuplot]
+        scheme: [basic, full]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
