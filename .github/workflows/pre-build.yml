@@ -9,6 +9,7 @@ on:
       - "main"
   schedule:
     - cron: "0 0 * * 0" # 毎週日曜 (UTC)
+  workflow_dispatch:
 
 env:
   REGISTRY_IMAGE: ghcr.io/eguchi1611/texlive-ja

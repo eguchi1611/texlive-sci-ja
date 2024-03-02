@@ -15,10 +15,16 @@ RUN wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz \
 # latexmkのインストール
 RUN tlmgr install latexmk
 
-# Ghostscriptをインストール
+# GhostscriptとGnuplotをインストール
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-  && apt-get -y install --no-install-recommends ghostscript \
+  && apt-get -y install --no-install-recommends ghostscript gnuplot \
   && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /usr/local/texlive/texmf-local/tex/latex/gnuplot
+
+# gnuplot-lua-tikzをインストール
+RUN gnuplot -e 'set term tikz createstyle' \
+  && mktexlsr
 
 WORKDIR /
 
