@@ -1,6 +1,6 @@
 {
   "id": "template",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "name": "TeX Live",
   "description": "TeX Live for Japanese and Science",
   "options": {
