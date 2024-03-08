@@ -1,5 +1,7 @@
 FROM buildpack-deps:bookworm-scm
 
+ARG TEXLIVE_MIRROR=https://tug.ctan.org/systems/texlive/tlnet
+
 ENV PATH=/usr/local/texlive/bin:$PATH
 
 WORKDIR /texlive-install
@@ -7,9 +9,9 @@ WORKDIR /texlive-install
 COPY ./texlive.profile .
 
 # texliveをインストール
-RUN wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz \
+RUN wget ${TEXLIVE_MIRROR}/install-tl-unx.tar.gz \
   && tar -xf install-tl-unx.tar.gz --strip-components 1 \
-  && ./install-tl -profile texlive.profile \
+  && ./install-tl -profile texlive.profile --location ${TEXLIVE_MIRROR} \
   && ln -sf /usr/local/texlive/*/bin/* /usr/local/texlive/bin
 
 # latexmkのインストール
