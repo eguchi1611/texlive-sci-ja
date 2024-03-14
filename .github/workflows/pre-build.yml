@@ -36,3 +36,4 @@ jobs:
           cacheFrom: ${{ env.REGISTRY_IMAGE }}
           platform: linux/amd64,linux/arm64
           subFolder: ./src
+          push: always
