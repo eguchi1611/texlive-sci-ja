@@ -1,8 +1,7 @@
 {
   "name": "TeX Live",
   "build": {
-    "dockerfile": "Dockerfile",
-    "context": ".."
+    "dockerfile": "../Dockerfile"
   },
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
