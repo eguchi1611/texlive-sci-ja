@@ -1,6 +1,6 @@
 {
   "name": "TeX Live",
-  "image": "ghcr.io/eguchi1611/texlive-sci-ja:latest",
+  "image": "eguchi1611/texlive-sci-ja:latest",
   "mounts": [
     "source=${localWorkspaceFolder}/.devcontainer/.latexmkrc,target=/home/vscode/.latexmkrc,type=bind,consistency=cached"
   ]
